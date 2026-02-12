@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 2026 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== Animated Romantic Background ===== */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ff9a9e,#fad0c4);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ===== Glass Card ===== */
+.container{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+padding:45px 35px;
+border-radius:30px;
+box-shadow:0 25px 60px rgba(0,0,0,0.3);
+max-width:500px;
+width:100%;
+z-index:2;
+position:relative;
+overflow:hidden;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+font-size:28px;
+margin-bottom:20px;
+}
+
+p{
+font-size:17px;
+min-height:60px;
+}
+
+/* ===== Buttons ===== */
+button{
+padding:14px 30px;
+margin:15px;
+border:none;
+border-radius:50px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:all 0.3s ease;
+}
+
+#yesBtn{
+background:linear-gradient(45deg,#00ff99,#00cc88);
+color:#000;
+box-shadow:0 5px 20px rgba(0,255,153,0.5);
+}
+
+#yesBtn:hover{
+transform:scale(1.15);
+}
+
+#noBtn{
+background:linear-gradient(45deg,#ff2e63,#ff4d6d);
+color:white;
+position:absolute;
+}
+
+/* ===== Rose Petals ===== */
+.petal{
+position:fixed;
+top:-50px;
+font-size:20px;
+animation:fall linear infinite;
+z-index:0;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* ===== Sparkle Cursor ===== */
+.sparkle{
+position:fixed;
+font-size:12px;
+pointer-events:none;
+animation:fade 1s forwards;
+z-index:999;
+}
+
+@keyframes fade{
+0%{opacity:1;transform:scale(1);}
+100%{opacity:0;transform:scale(2);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Romantic Background Music -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5a8f7f9e6c.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+<h2>Will you be my Valentine 2026, {{ name }}? 💖</h2>
+<p id="typedText"></p>
+
+<button id="yesBtn">YES ❤️</button>
+<button id="noBtn">NO 💔</button>
+</div>
+
+<script>
+
+/* ============================= */
+/*        Typing Animation       */
+/* ============================= */
+
+const message = "{{ message }}";
+let index = 0;
+const typedText = document.getElementById("typedText");
+
+function typeEffect(){
+if(index < message.length){
+typedText.innerHTML += message.charAt(index);
+index++;
+setTimeout(typeEffect,40);
+}
+}
+typeEffect();
+
+
+/* ============================= */
+/*   Emotional Moving NO Button  */
+/* ============================= */
+
+const noBtn = document.getElementById("noBtn");
+const container = document.querySelector(".container");
+
+const messages = [
+"Please 🥺",
+"Think Again 💭",
+"Are you sure? 😢",
+"You’re not choosing right 😭",
+"Last chance 💔",
+"Don’t break my heart 💖"
+];
+
+let messageIndex = 0;
+
+// Ensure proper positioning
+container.style.position = "relative";
+noBtn.style.position = "absolute";
+
+function moveButton(){
+
+// Change label
+noBtn.innerText = messages[messageIndex];
+messageIndex = (messageIndex + 1) % messages.length;
+
+const containerRect = container.getBoundingClientRect();
+const btnWidth = noBtn.offsetWidth;
+const btnHeight = noBtn.offsetHeight;
+
+const maxX = containerRect.width - btnWidth;
+const maxY = containerRect.height - btnHeight;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+}
+
+// Desktop hover
+noBtn.addEventListener("mouseover", moveButton);
+
+// Mobile tap
+noBtn.addEventListener("click", function(e){
+e.preventDefault();
+moveButton();
+});
+
+
+/* ============================= */
+/*         Rose Petals           */
+/* ============================= */
+
+for(let i=0;i<30;i++){
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌹";
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+petal.style.fontSize=(15+Math.random()*20)+"px";
+document.body.appendChild(petal);
+}
+
+
+/* ============================= */
+/*        Sparkle Cursor         */
+/* ============================= */
+
+document.addEventListener("mousemove",function(e){
+let sparkle=document.createElement("div");
+sparkle.className="sparkle";
+sparkle.innerHTML="✨";
+sparkle.style.left=e.pageX+"px";
+sparkle.style.top=e.pageY+"px";
+document.body.appendChild(sparkle);
+setTimeout(()=>sparkle.remove(),800);
+});
+
+
+/* ============================= */
+/*        YES Confetti           */
+/* ============================= */
+
+document.getElementById("yesBtn").onclick=function(){
+
+for(let i=0;i<120;i++){
+let conf=document.createElement("div");
+conf.style.position="fixed";
+conf.style.width="8px";
+conf.style.height="8px";
+conf.style.background="hsl("+Math.random()*360+",100%,50%)";
+conf.style.left=window.innerWidth/2+"px";
+conf.style.top=window.innerHeight/2+"px";
+conf.style.borderRadius="50%";
+conf.style.transition="1s ease-out";
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+conf.style.left=Math.random()*window.innerWidth+"px";
+conf.style.top=Math.random()*window.innerHeight+"px";
+conf.style.opacity=0;
+},10);
+
+setTimeout(()=>conf.remove(),1000);
+}
+
+setTimeout(()=>{
+window.location.href="/final";
+},1200);
+
+};
+
+</script>
+
+</body>
+</html>

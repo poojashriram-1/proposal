@@ -1,0 +1,246 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--<title>Send Proposal 💖</title>-->
+
+<!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">-->
+
+<!--<style>-->
+<!--body{-->
+<!--    margin:0;-->
+<!--    font-family:'Poppins',sans-serif;-->
+<!--    background:linear-gradient(135deg,#ff758c,#ff7eb3);-->
+<!--    display:flex;-->
+<!--    justify-content:center;-->
+<!--    align-items:center;-->
+<!--    min-height:100vh;-->
+<!--    padding:20px;-->
+<!--}-->
+
+<!--.card{-->
+<!--    width:100%;-->
+<!--    max-width:450px;-->
+<!--    background:rgba(255,255,255,0.2);-->
+<!--    backdrop-filter:blur(20px);-->
+<!--    padding:25px;-->
+<!--    border-radius:20px;-->
+<!--    box-shadow:0 20px 40px rgba(0,0,0,0.2);-->
+<!--}-->
+
+<!--h1{-->
+<!--    text-align:center;-->
+<!--    color:white;-->
+<!--    font-size:24px;-->
+<!--    margin-bottom:20px;-->
+<!--}-->
+
+<!--input,textarea{-->
+<!--    width:100%;-->
+<!--    padding:14px;-->
+<!--    margin:10px 0;-->
+<!--    border:none;-->
+<!--    border-radius:12px;-->
+<!--    font-size:16px;-->
+<!--}-->
+
+<!--button{-->
+<!--    width:100%;-->
+<!--    padding:15px;-->
+<!--    border:none;-->
+<!--    border-radius:30px;-->
+<!--    background:#ff2e63;-->
+<!--    color:white;-->
+<!--    font-size:16px;-->
+<!--    cursor:pointer;-->
+<!--}-->
+<!--</style>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<div class="card">-->
+<!--<h1>Send Your Proposal 💖</h1>-->
+
+<!--<form action="/create-order" method="POST">-->
+<!--<input type="text" name="lover_name" placeholder="Loved One Name" required>-->
+<!--<textarea name="message" placeholder="Write your beautiful message..." required></textarea>-->
+<!--<input type="email" name="email" placeholder="Receiver Email" required>-->
+<!--&lt;!&ndash;<input type="text" name="phone" placeholder="Receiver Phone" required>&ndash;&gt;-->
+<!--<button type="submit">Proceed to Payment of 49 for your loved one💳</button>-->
+<!--</form>-->
+
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send Proposal 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff6b9a,#ff8fab);
+    padding:20px;
+}
+
+/* Main Card */
+.card{
+    width:100%;
+    max-width:480px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:40px 30px;
+    box-shadow:0 25px 50px rgba(0,0,0,0.2);
+    animation:fadeIn 0.6s ease-in-out;
+}
+
+/* Title */
+.card h1{
+    text-align:center;
+    color:#fff;
+    font-size:26px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* Input Group */
+.form-group{
+    margin-bottom:18px;
+}
+
+input,textarea{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:none;
+    outline:none;
+    font-size:14px;
+    background:rgba(255,255,255,0.95);
+    transition:0.3s ease;
+}
+
+textarea{
+    height:100px;
+    resize:none;
+}
+
+input:focus,textarea:focus{
+    box-shadow:0 0 0 3px rgba(255,255,255,0.4);
+    transform:translateY(-1px);
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff2e63,#ff0844);
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+    letter-spacing:0.5px;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+button:active{
+    transform:scale(0.98);
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    margin-top:18px;
+    font-size:12px;
+    color:rgba(255,255,255,0.85);
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile Optimization */
+@media(max-width:480px){
+    .card{
+        padding:30px 20px;
+    }
+
+    .card h1{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Send Your Proposal 💖</h1>
+
+    <!-- ROUTING SAME AS YOUR PROJECT -->
+    <form action="/create-order" method="POST">
+
+        <div class="form-group">
+            <input type="text" name="lover_name" placeholder="Loved One Name" required>
+        </div>
+
+        <div class="form-group">
+            <textarea name="message" placeholder="Write your beautiful message..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Receiver Email" required>
+        </div>
+
+        <!-- If later you enable phone -->
+        <!-- <input type="text" name="phone" placeholder="Receiver Phone" required> -->
+
+        <button type="submit">
+            Proceed to Payment ₹49 💳
+        </button>
+
+    </form>
+
+    <div class="footer">
+        Crafted with ❤️ for meaningful moments
+    </div>
+</div>
+
+</body>
+</html>

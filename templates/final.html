@@ -1,0 +1,200 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--<title>Best Decision 💖</title>-->
+
+<!--<style>-->
+<!--body{-->
+<!--margin:0;-->
+<!--font-family:Poppins,sans-serif;-->
+<!--background:linear-gradient(135deg,#ff758c,#ff7eb3);-->
+<!--display:flex;-->
+<!--justify-content:center;-->
+<!--align-items:center;-->
+<!--min-height:100vh;-->
+<!--text-align:center;-->
+<!--padding:20px;-->
+<!--color:white;-->
+<!--}-->
+
+<!--h1{-->
+<!--font-size:28px;-->
+<!--}-->
+<!--</style>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<div>-->
+<!--<h1>💖 You Made the Lovely Decision 💖</h1>-->
+<!--<h2>Best Choice of 2026 😍</h2>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Decision 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== Animated Romantic Background ===== */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#ff758c,#ff7eb3,#ff9a9e,#fad0c4);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* ===== Glass Luxury Card ===== */
+.container{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(25px);
+padding:50px 40px;
+border-radius:30px;
+box-shadow:0 30px 70px rgba(0,0,0,0.3);
+animation:fadeIn 1.5s ease forwards;
+transform:scale(0.8);
+opacity:0;
+}
+
+@keyframes fadeIn{
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* ===== Glowing Text ===== */
+h1{
+font-family:'Playfair Display',serif;
+font-size:32px;
+margin-bottom:15px;
+animation:glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px #fff, 0 0 20px #ff99cc; }
+to{ text-shadow:0 0 20px #fff, 0 0 40px #ff3399; }
+}
+
+h2{
+font-weight:500;
+opacity:0.95;
+}
+
+/* ===== Rose Petals ===== */
+.petal{
+position:absolute;
+top:-50px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* ===== Sparkle Animation ===== */
+.sparkle{
+position:absolute;
+font-size:14px;
+animation:fade 1.5s forwards;
+pointer-events:none;
+}
+
+@keyframes fade{
+0%{opacity:1;transform:scale(1);}
+100%{opacity:0;transform:scale(2);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Romantic Background Music -->
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5a8f7f9e6c.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+<h1>💖 You Made the Lovely Decision 💖</h1>
+<h2>Best Choice of 2026 😍</h2>
+</div>
+
+<script>
+
+/* ===== Rose Petals ===== */
+for(let i=0;i<40;i++){
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌹";
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+petal.style.fontSize=(15+Math.random()*25)+"px";
+document.body.appendChild(petal);
+}
+
+/* ===== Confetti Celebration ===== */
+for(let i=0;i<120;i++){
+let conf=document.createElement("div");
+conf.style.position="absolute";
+conf.style.width="8px";
+conf.style.height="8px";
+conf.style.background="hsl("+Math.random()*360+",100%,50%)";
+conf.style.left=window.innerWidth/2+"px";
+conf.style.top=window.innerHeight/2+"px";
+conf.style.borderRadius="50%";
+conf.style.transition="1.5s ease-out";
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+conf.style.left=Math.random()*window.innerWidth+"px";
+conf.style.top=Math.random()*window.innerHeight+"px";
+conf.style.opacity=0;
+},10);
+
+setTimeout(()=>conf.remove(),1500);
+}
+
+/* ===== Sparkle Ambient Effect ===== */
+setInterval(()=>{
+let sparkle=document.createElement("div");
+sparkle.className="sparkle";
+sparkle.innerHTML="✨";
+sparkle.style.left=Math.random()*window.innerWidth+"px";
+sparkle.style.top=Math.random()*window.innerHeight+"px";
+document.body.appendChild(sparkle);
+setTimeout(()=>sparkle.remove(),1500);
+},300);
+
+</script>
+
+</body>
+</html>
