@@ -1,10 +1,11 @@
+import os
 import smtplib
 from email.mime.text import MIMEText
 
 def send_mail(receiver_email, link):
 
-    sender_email = "pvshriram3@gmail.com"
-    app_password = "onequpkxwlwxhjgv"
+    sender_email = os.getenv("EMAIL_USER")
+    app_password = os.getenv("EMAIL_PASS")
 
     body = f"""
     💖 You received a special proposal!
