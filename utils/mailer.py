@@ -67,7 +67,7 @@ from pprint import pprint
 
 import os
 
-configuration.api_key['api-key'] = os.getenv("BREVO_API_KEY")
+# configuration.api_key['api-key'] = os.getenv("BREVO_API_KEY")
 
 
 def send_mail(to_email, link):
