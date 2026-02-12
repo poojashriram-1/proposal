@@ -39,7 +39,6 @@ import resend
 resend.api_key = os.getenv("RESEND_API_KEY")
 print("key",os.getenv("RESEND_API_KEY"))
 
-
 def send_mail(to_email, link):
     try:
         response = resend.Emails.send({
@@ -52,6 +51,11 @@ def send_mail(to_email, link):
                 <a href="{link}">Proposal link 💕</a>
             """
         })
+
+        print("Sending email to:", to_email)
+        print("Using key:", resend.api_key)
+
         print("Email sent:", response)
     except Exception as e:
         print("Email failed:", e)
+
