@@ -73,15 +73,21 @@ def create_order():
 @app.route("/success/<order_id>")
 def success(order_id):
     data = DATA.get(order_id)
+    # print("key", os.getenv("RESEND_API_KEY"))
+    if not data:
+        # print("DATA currently:", DATA)
+        return "Order not found or server restarted!", 404
 
     link = f"http://localhost:5000/valentine/{order_id}"
 
     # Send Email (simple)
+    print("in sucess def")
+    print("link", link)
+    print("email:", data.get("email"))
+
     send_mail(data["email"], link)
 
     # Send SMS (Twilio optional)
-
-    #
     # send_sms(data["phone"], link)
 
     return render_template("success.html")
